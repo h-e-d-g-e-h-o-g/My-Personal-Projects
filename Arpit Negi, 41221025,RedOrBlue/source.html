@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix</title>
+    <link rel="stylesheet" href="css/source-styles.css">
+</head>
+<body>
+    <!-- <video autoplay loop id="myVideo">
+        <source src="Matrix.mp4" type="video/mp4">
+    </video> -->
+    <video  controls="False" autoplay muted loop id="myVideo">
+        <source src="Matrix.mp4" type="video/mp4">     <!-- Safari / iOS video    -->
+        <source src="movie.ogg" type="video/ogg" /><!-- Firefox / Opera / Chrome10 -->
+    </video>
+    <script>
+        document.getElementById('myVideo').play();
+    </script>
+</body>
+</html>

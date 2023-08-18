@@ -1,0 +1,55 @@
+{% include "header.html" %}
+<header class="masthead" style="background-image: url('{{ url_for('static', filename='images/favorites.jpg') }}')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>Favorites Articles</h1>
+                    <span class="subheading">Articles that You've liked</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container px-4 px-lg-5">
+    {% if favorite_articles != []: %}
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <!-- Post preview-->
+            {% for favorite in favorite_articles: %}
+                <div class="post-preview">
+                <a href="{{ url_for('show_article', article_id=favorite.article_liked.id) }}">
+                    <h2 class="post-title">{{ favorite.article_liked.title }}</h2>
+                    <h3 class="post-subtitle">{{ favorite.article_liked.subtitle }}</h3>
+                </a>
+                <p class="post-meta">
+                    Posted by
+                    <a href="{{ url_for('user_details', user_id=favorite.article_liked.author.id) }}">{{ favorite.article_liked.author.name }}</a>
+                    on {{ favorite.article_liked.date }}
+                    <a href="{{url_for('your_favorites', article_id=favorite.article_id)}}">
+                        <i class="fa-solid fa-heart-crack fa-2xl" style="color: #4eb3ef;"></i>
+                    </a>
+                </p>
+
+                </div>
+                <!-- Divider-->
+                <hr class="my-4" />
+            {% endfor %}
+    
+            <!-- New Post -->
+            <!-- TODO: Only show Create Post button if user id is 1 (admin user) -->
+    
+            <!-- Pager-->
+            <!-- <div class="d-flex justify-content-end mb-4">
+            <a class="btn btn-secondary text-uppercase" href="#!">Older Posts →</a>
+            </div> -->
+        </div>
+        </div>
+    {% else: %}
+    <div class="image-container my-3">
+        <img src="static/images/resources_not_found.jpg" class="resources_not_found" alt="No Articles" srcset="">
+    </div>
+    {% endif %}
+</div>
+
+{% include "footer.html" %}

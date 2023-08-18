@@ -1,0 +1,22 @@
+{% include "header.html" %}
+<header class="masthead" style="background-image: url('{{url_for('static', filename='images/error.jpg')}}')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>Error</h1>
+                    <span class="subheading">Doggy Doggy What now?🐶</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="card-container my-4">
+    <div class="card card-size card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('{{url_for('static', filename=quote['img'] )}}'); background-size:cover; background-position: center center;">
+        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ quote["speaker"] }}</h3>
+            <p>{{ quote["quote"] }}</p>
+        </div>
+    </div>
+</div>
+{% include "footer.html" %}
